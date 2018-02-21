@@ -28,7 +28,7 @@ Hints:
 
 ## Got lost?
 
-If you're got lost, have a look in `nginx-final`.
+If you got lost, have a look in `nginx-final`.
 
 ## Support
 
