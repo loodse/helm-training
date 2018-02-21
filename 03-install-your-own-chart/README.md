@@ -14,13 +14,13 @@ Hint: we want to set the namespace during the installation & don't want to hardc
 
 With Helm we also can upgrade deployments.
 
-`$ helm upgrade --tille-namespace NAMESPACE --namespace NAMESPACE NAME nginx -f upgrade.yaml`
+`$ helm upgrade --tiller-namespace NAMESPACE --namespace NAMESPACE NAME nginx -f upgrade.yaml`
 
 I prepared an other files with values, called `upgrade.yaml` this will override the defaults value & and upgrade our release.
 
 ## List releases
 
-Now you should see, that your release jumped to the next revision
+Now you should see that your release jumped to the next revision
 
 `$ helm ls --tiller-namespace NAMESPACE`
 
