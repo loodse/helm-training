@@ -66,4 +66,3 @@ spec:
         - name: wwwdata-volume
           configMap:
             name: nginx-config
-

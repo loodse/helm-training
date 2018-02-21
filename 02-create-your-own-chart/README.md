@@ -19,7 +19,7 @@ Helm will add a template for a deployment, ingress & service to the templates di
 
 As a reference, there is a `nginx.yaml` in this directory, which contains a Deployment, Service, ConfigMap & a Secret Kubernetes Manifest, try to convert this to a Helm chart.
 
-Hints:
+### Hints:
 
 * use a file per kind
 * move often used identifier to the `values.yaml`
