@@ -17,3 +17,8 @@ In [Step 3](03-install-your-own-chart/README.md) we are installing our Chart, af
 ## Additional commands
 
 In [Step 4](04-additional-commands/README.md) are some additional & useful commands shown.
+
+## Tipps & Tricks
+
+### Tiller Namespace
+During the tutorials I always use `--tiller-namespace`, you can instead set the environment variable `TILLER_NAMESPACE` to the correct value.
