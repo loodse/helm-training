@@ -5,7 +5,7 @@ metadata:
   name: nginx-secret
   labels:
    app: nginx
-ype: Opaque
+type: Opaque
 data:
   password: c2VjcmV0
   username: dXNlcjE=
