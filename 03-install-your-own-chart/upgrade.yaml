@@ -1,0 +1,5 @@
+replicaCount: 2
+index: >-
+  <h1>Hello Worl</h1>
+  <p>This is a test after an upgrade</p>
+

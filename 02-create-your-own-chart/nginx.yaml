@@ -1,0 +1,71 @@
+---
+piVersion: v1
+kind: Secret
+metadata:
+  name: nginx-secret
+  labels:
+   app: nginx
+ype: Opaque
+data:
+  password: c2VjcmV0
+  username: dXNlcjE=
+
+---
+piVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+  labels:
+   app: nginx
+data:
+  index.html: "<h1>Hello</h1> <p>This is a test</p>"
+  test.txt: test
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+   app: nginx
+  name: nginx-svc
+spec:
+  type: "ClusterIP"
+  ports:
+    - name: http
+      port: 8888
+      protocol: TCP
+      targetPort: http
+  selector:
+    app: nginx
+    release: RELEASE-NAME
+
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+ name: nginx-deployment
+  labels:
+   app: nginx
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: "nginx:1.11.0"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          volumeMounts:
+            - mountPath: /usr/share/nginx/html
+              name: wwwdata-volume
+      volumes:
+        - name: wwwdata-volume
+          configMap:
+            name: nginx-config
+
