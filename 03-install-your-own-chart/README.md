@@ -6,7 +6,7 @@ After we learned how to install the Tiller which is using a ServiceAccount and g
 
 First let's install the nginx Chart with an own defined name.
 
-`$ helm install --tiller-namespace NAMESPACE --namespac nginx/ --name NAME`
+`$ helm install --tiller-namespace NAMESPACE --namespace NAMESPACE --name NAME nginx/`
 
 Hint: we want to set the namespace during the installation & don't want to hardcode them in the templates.
 
