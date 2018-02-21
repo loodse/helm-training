@@ -12,6 +12,10 @@ index: >-
   <h1>Hello</h1>
   <p>This is a test</p>
 
+secret:
+  user: "user1"
+  password: "secret"
+
 image:
   repository: nginx
   tag: 1.11.0
