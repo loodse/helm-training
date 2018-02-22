@@ -24,6 +24,7 @@ As a reference, there is a `nginx.yaml` in this directory, which contains a Depl
 * use a file per kind
 * move often used identifier to the `values.yaml`
 * move cross-referenced values like ports to the `values.yaml`
+* the `b64enc` function could be useful for secrets
 * are there helpful functions in the `_helpers.tpl`?
 
 ## Got lost?
