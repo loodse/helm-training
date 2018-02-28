@@ -19,13 +19,13 @@ Helm will add a template for a deployment, ingress & service to the templates di
 
 As a reference, there is a `nginx.yaml` in this directory, which contains a Deployment, Service, ConfigMap & a Secret Kubernetes Manifest, try to convert this to a Helm chart.
 
-### Hints:
+### Possible steps:
 
-* use a file per kind
-* move often used identifier to the `values.yaml`
+* create a file per Kubernetes entity
+* use templating for often used identifiers & move them to the `values.yaml`
 * move cross-referenced values like ports to the `values.yaml`
 * the `b64enc` function could be useful for secrets
-* are there helpful functions in the `_helpers.tpl`?
+* use `helm template` to test your templates (maybe the first time after splitting up the manifest & before using any templating)
 
 ## Got lost?
 
