@@ -6,13 +6,13 @@ To install Tiller in a seperated Namespace where he only can act, we have to do 
 
 ### Create your namespace
 
-`kubectl create namespace NAMESPACE`
+`$ kubectl create namespace NAMESPACE`
 
 Replace NAMESPACE with the name of the namespace you want to create 
 
 ### Create a service account for the tiller
 
-`kubectl create serviceaccount NAME --namespace NAMESPACE`
+`$ kubectl create serviceaccount NAME --namespace NAMESPACE`
 
 Replace NAME with the name of the serviceaccount you want to create & NAMESPACE with the name of the namespace from the previously step.
 
