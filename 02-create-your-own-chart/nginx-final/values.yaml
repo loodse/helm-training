@@ -21,6 +21,8 @@ image:
   tag: 1.11.0
   pullPolicy: IfNotPresent
 
+ListenPort: 8080
+
 service:
   annotations: {}
   clusterIP: ""

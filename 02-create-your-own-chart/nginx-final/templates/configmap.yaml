@@ -12,3 +12,8 @@ data:
   # When the config map is mounted as a volume, these will be created as files.
   index.html: {{ .Values.index | quote }}
   test.txt: test
+  default.conf: |-
+      server {
+        listen      {{ .Values.ListenPort }};
+        server_name 127.0.0.1;
+      }

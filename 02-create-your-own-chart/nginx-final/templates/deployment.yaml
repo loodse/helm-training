@@ -33,14 +33,22 @@ spec:
         - name: {{ template "nginx.name" . }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          securityContext:
+            runAsUser: 101
           ports:
             - name: http
-              containerPort: 80
+              containerPort: {{ .Values.ListenPort }}
               protocol: TCP
           # This (and the volumes section below) mount the config map as a volume.
           volumeMounts:
             - mountPath: /usr/share/nginx/html
               name: wwwdata-volume
+            - mountPath: /etc/nginx/conf.d
+              name: nginx-config
+            - mountPath: /var/cache/nginx
+              name: cache
+            - name: run
+              mountPath: /var/run
           resources:
 # Allow chart users to specify resources. Usually, no default should be set, so this is left to be a conscious
 # choice to the chart users and avoids that charts don't run out of the box on, e. g., Minikube when high resource
@@ -55,3 +63,13 @@ spec:
         - name: wwwdata-volume
           configMap:
             name: {{ template "nginx.fullname" . }}
+        - name: cache
+          emptyDir: {}
+        - name: run
+          emptyDir: {}
+        - name: nginx-config
+          configMap:
+            name: {{ template "nginx.fullname" . }}
+            items:
+            - key: default.conf
+              path: default.conf
