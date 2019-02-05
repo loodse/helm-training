@@ -1,9 +1,9 @@
 kind: Role
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: ROLENAME
-  namespace: NAMESPACE
+  name: tiller-role
+  namespace: tiller-land
 rules:
-- apiGroups: ["", "extensions", "apps"]
+- apiGroups: ["", "batch", "extensions", "apps"]
   resources: ["*"]
   verbs: ["*"]
