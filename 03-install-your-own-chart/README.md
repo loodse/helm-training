@@ -6,7 +6,7 @@ After we learned how to install the Tiller which is using a ServiceAccount and g
 
 First let's install the nginx Chart with an own defined name.
 
-`$ helm install --tiller-namespace $NAMESPACE --namespace $NAMESPACE --name $NAME nginx/`
+`$ helm install --tiller-namespace $TILLER_NAMESPACE --namespace $TILLER_NAMESPACE --name $NAME nginx/`
 
 Hint: we want to set the namespace during the installation & don't want to hardcode them in the templates.
 
@@ -14,7 +14,7 @@ Hint: we want to set the namespace during the installation & don't want to hardc
 
 With Helm we also can upgrade deployments.
 
-`$ helm upgrade --tiller-namespace $NAMESPACE --namespace $NAMESPACE $NAME nginx -f upgrade.yaml`
+`$ helm upgrade --tiller-namespace $TILLER_NAMESPACE --namespace $TILLER_NAMESPACE $NAME nginx -f upgrade.yaml`
 
 I prepared an other files with values, called `upgrade.yaml` this will override the defaults value & and upgrade our release.
 
@@ -22,13 +22,13 @@ I prepared an other files with values, called `upgrade.yaml` this will override 
 
 Now you should see that your release jumped to the next revision
 
-`$ helm ls --tiller-namespace $NAMESPACE`
+`$ helm ls --tiller-namespace $TILLER_NAMESPACE`
 
 ## Rollback a release
 
 If you want to rollback a release, Helm will also handle all steps for you, just execute
 
-`$ helm rollback --tiller-namespace $NAME $REVISION`
+`$ helm rollback --tiller-namespace $TILLER_NAMESPACE $NAME $REVISION`
 
 Where NAME is the name of the release you set and REVISION the number of the revision you want to rollback.
 
@@ -36,5 +36,5 @@ Where NAME is the name of the release you set and REVISION the number of the rev
 
 Helm lets you also delete a release
 
-`$ helm delete --tiller-namespace $NAMESPACE $NAME`
+`$ helm delete --tiller-namespace $TILLER_NAMESPACE $NAME`
 
