@@ -1,13 +1,13 @@
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
-  name: BINDINGNAME
-  namespace: NAMESPACE
+  name: tiller-binding
+  namespace: tiller-land
 subjects:
 - kind: ServiceAccount
-  name: NAME
-  namespace: NAMESPACE
+  name: tiller-sa
+  namespace: tiller-land
 roleRef:
   kind: Role
-  name: ROLENAME
+  name: tiller-role
   apiGroup: rbac.authorization.k8s.io
